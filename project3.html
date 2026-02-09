@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</body>
+<footer>
+    <div class="container">
+        <p>Footer</p>
+    </div>
+</footer>
+
+<!-- Floating site navigation FAB -->
+<div id="site-nav-fab">
+    <button id="fab-toggle" class="fab" aria-label="Open navigation">☰</button>
+    <div id="fab-overlay" class="fab-overlay" hidden>
+        <div class="fab-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+            <button id="fab-close" class="fab-close" aria-label="Close">✕</button>
+            <h3>Navigate</h3>
+            <ul class="fab-list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="project1.html">Project1</a></li>
+                <li><a href="project2.html">Project2</a></li>
+                <li><a href="project3.html">Project3</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    .fab { position: fixed; right: 16px; bottom: 16px; width: 56px; height: 56px; border-radius: 50%; background: #6C63FF; color: #fff; border: none; box-shadow: 0 6px 18px rgba(0,0,0,0.12); z-index: 2200; font-size: 20px; cursor: pointer; }
+    .fab-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 2100; }
+    .fab-panel { width: 92%; max-width: 360px; background: #fff; padding: 1rem 1rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+    .fab-close { background: transparent; border: none; font-size: 18px; float: right; cursor: pointer; }
+    .fab-list { list-style: none; padding: 0; margin: 0.5rem 0 0 0; display: grid; gap: 0.5rem; }
+    .fab-list a { display: block; padding: 0.55rem; border-radius: 8px; text-decoration: none; color: #1f2937; background: #f8fafc; }
+    .fab-list a:hover { background: #eef2ff; }
+</style>
+
+<script>
+    (function(){
+        const toggle = document.getElementById('fab-toggle');
+        const overlay = document.getElementById('fab-overlay');
+        const closeBtn = document.getElementById('fab-close');
+        toggle && toggle.addEventListener('click', ()=> overlay.hidden = false);
+        closeBtn && closeBtn.addEventListener('click', ()=> overlay.hidden = true);
+        overlay && overlay.addEventListener('click', (e)=> { if (e.target === overlay) overlay.hidden = true; });
+        document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') overlay && (overlay.hidden = true); });
+    })();
+</script>
+</html>
