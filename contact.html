@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Get in touch</title>
+    <style>
+                 /* ===== VARIABLES & RESET ===== */
+        <footer>
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --accent: #FF6584;
+            --dark: #2A2D43;
+            --light: #F8F9FA;
+        <!-- Floating site navigation FAB -->
+        <div id="site-nav-fab">
+            <button id="fab-toggle" class="fab" aria-label="Open navigation">☰</button>
+            <div id="fab-overlay" class="fab-overlay" hidden>
+                <div class="fab-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+                    <button id="fab-close" class="fab-close" aria-label="Close">✕</button>
+                    <h3>Navigate</h3>
+                    <ul class="fab-list">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="project1.html">Project1</a></li>
+                        <li><a href="project2.html">Project2</a></li>
+                        <li><a href="project3.html">Project3</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .fab { position: fixed; right: 16px; bottom: 16px; width: 56px; height: 56px; border-radius: 50%; background: #6C63FF; color: #fff; border: none; box-shadow: 0 6px 18px rgba(0,0,0,0.12); z-index: 2200; font-size: 20px; cursor: pointer; }
+            .fab-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 2100; }
+            .fab-panel { width: 92%; max-width: 360px; background: #fff; padding: 1rem 1rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+            .fab-close { background: transparent; border: none; font-size: 18px; float: right; cursor: pointer; }
+            .fab-list { list-style: none; padding: 0; margin: 0.5rem 0 0 0; display: grid; gap: 0.5rem; }
+            .fab-list a { display: block; padding: 0.55rem; border-radius: 8px; text-decoration: none; color: #1f2937; background: #f8fafc; }
+            .fab-list a:hover { background: #eef2ff; }
+        </style>
+
+        <script>
+            (function(){
+                const toggle = document.getElementById('fab-toggle');
+                const overlay = document.getElementById('fab-overlay');
+                const closeBtn = document.getElementById('fab-close');
+                toggle && toggle.addEventListener('click', ()=> overlay.hidden = false);
+                closeBtn && closeBtn.addEventListener('click', ()=> overlay.hidden = true);
+                overlay && overlay.addEventListener('click', (e)=> { if (e.target === overlay) overlay.hidden = true; });
+                document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') overlay && (overlay.hidden = true); });
+            })();
+        </script>
+            position: fixed;
+            margin-top: auto;
+            margin-left: -10px;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 20px;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 5px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* ===== CONTACT SECTION ===== */
+.contact {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 5rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #2d3436;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #0984e3, #00cec9);
+    border-radius: 2px;
+}
+
+/* Contact Container */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form */
+.contact-form {
+    padding: 3rem;
+}
+
+.contact-form h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #2d3436;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.contact-form h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #0984e3;
+    border-radius: 2px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e0e6ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0984e3;
+    background: white;
+    box-shadow: 0 5px 15px rgba(9, 132, 227, 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Form Icons */
+.form-group::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #636e72;
+    font-size: 1.1rem;
+    z-index: 1;
+}
+
+.form-group:nth-child(1)::before { content: '\f007'; } /* user icon */
+.form-group:nth-child(2)::before { content: '\f0e0'; } /* envelope icon */
+.form-group:nth-child(3)::before { content: '\f02b'; } /* tag icon */
+.form-group:nth-child(4)::before {
+    content: '\f075'; /* comment icon */
+    top: 1.5rem;
+    transform: none;
+}
+
+/* Submit Button */
+.contact-form .btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #0984e3, #00cec9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-form .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(9, 132, 227, 0.2);
+    background: linear-gradient(90deg, #0770c4, #00b5b0);
+}
+
+.contact-form .btn:active {
+    transform: translateY(-1px);
+}
+
+/* Form Status Message */
+.form-status {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Contact Details */
+.contact-details {
+    padding: 3rem;
+    background: linear-gradient(135deg, #0984e3 0%, #00cec9 100%);
+    color: white;
+    position: relative;
+}
+
+.contact-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* Info Items */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: white;
+}
+
+.info-item p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: white;
+    color: #0984e3;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .contact-details {
+        order: -1;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .contact-form {
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact h2 {
+        font-size: 2.2rem;
+    }
+    
+    .contact-container {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form,
+    .contact-details {
+        padding: 2rem;
+    }
+    
+    .contact-form h3,
+    .contact-details h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 3rem 2%;
+    }
+    
+    .contact-form h3,
+    .contact-details h3 {
+        font-size: 1.4rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+    }
+    
+    .form-group::before {
+        left: 0.8rem;
+        font-size: 1rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Animation for form elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form .form-group,
+.contact-details .info-item {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.contact-form .form-group:nth-child(1) { animation-delay: 0.1s; }
+.contact-form .form-group:nth-child(2) { animation-delay: 0.2s; }
+.contact-form .form-group:nth-child(3) { animation-delay: 0.3s; }
+.contact-form .form-group:nth-child(4) { animation-delay: 0.4s; }
+
+/* Placeholder styling */
+::placeholder {
+    color: #adb5bd;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #adb5bd;
+}
+
+::-ms-input-placeholder {
+    color: #adb5bd;
+}
+
+/* Success/Error states */
+.form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2d3436;
+    color: white;
+}
+footer .social-links {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image img {
+        width: 250px;
+        margin-top: 2rem;
+    }
+}
+ /* ===== THEME TOGGLE ===== */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+
+       <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Portfolio</a>
+                
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+     <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    
+    <div class="contact-container">
+        <div class="contact-form">
+            <h3>Let's Work Together</h3>
+            <!-- Replace YOUR_FORM_ID with your actual Formspree form ID -->
+            <form id="contactForm"  action="https://formspree.io/f/mknadzap" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="6" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+                <p class="form-status" id="formStatus"></p>
+            </form>
+        </div>
+        
+        <div class="contact-details">
+            <h3>Contact Information</h3>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Location</h4>
+                    <p>ilishan, Nigeria</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>balogunsufian0@gmail.com</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+234 8079165306</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/sufian-taiwo-5a1361282"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-codepen"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+   <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/sufian-taiwo-5a1361282"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> [Big Figure]. All rights reserved.</p>
+            <p class="copyright">Built with ❤️ and code</p>
+        </div>
+    </footer>
+<script>
+               // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-level');
+            skillBars.forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                bar.style.width = level + '%';
+            });
+        }
+        
+        // Animate counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        // Check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+            );
+        }
+        
+        // Handle scroll animations
+        function handleScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.animate');
+            animatedElements.forEach(element => {
+                if (isInViewport(element)) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+            
+            // Animate skill bars when in view
+            const skillSection = document.getElementById('skills');
+            if (isInViewport(skillSection)) {
+                animateSkillBars();
+            }
+            
+            // Animate counters when in view
+            const aboutSection = document.getElementById('about');
+            if (isInViewport(aboutSection)) {
+                animateCounters();
+            }
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formStatus = document.getElementById('formStatus');
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                // Show loading
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate sending
+                setTimeout(() => {
+                    formStatus.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.style.color = 'var(--success)';
+                    formStatus.style.padding = '1rem';
+                    formStatus.style.borderRadius = '5px';
+                    formStatus.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Clear message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                    }, 5000);
+                }, 2000);
+            });
+        }
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            themeToggle.innerHTML = document.body.classList.contains('dark-theme')
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        });
+        
+        // Dark theme styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .dark-theme {
+                --dark: #F8F9FA;
+                --light: #2A2D43;
+                --gray: #8C8CA1;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            }
+            
+            .dark-theme header,
+            .dark-theme .skill-category,
+            .dark-theme .project-card,
+            .dark-theme .contact-form,
+            .dark-theme .stat-item {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(10px);
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initial setup
+        window.addEventListener('load', handleScrollAnimations);
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Add animation styles to elements
+        document.querySelectorAll('.animate').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+</script>
+</body>
+</html>
